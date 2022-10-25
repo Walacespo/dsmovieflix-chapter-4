@@ -45,4 +45,8 @@ public class UserService implements UserDetailsService {
 		User entity = obj.orElseThrow(() -> new ResourceNotFoundException("Entity not found"));
 		return new UserDTO(entity);
 	}
+	
+	public UserDTO getProfile() {
+		return new UserDTO(authService.authenticated());
+	}
 }
